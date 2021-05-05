@@ -19,6 +19,9 @@ public class Bird : MonoBehaviour
 
     private void Update() 
     {
+        /*GetComponent<LineRenderer>().SetPosition(0, _initialPosition); // Put index 0 (the first item) in the object's line renderer transform.position
+        GetComponent<LineRenderer>().SetPosition(1, transform.position); */
+
         if (birdWasLaunched && GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1) // Reset the scene once bird gameobject stops moving after launch
         {
             timeSittingAround += Time.deltaTime; // Amount of time since last frame - Time.deltaTime
@@ -34,6 +37,7 @@ public class Bird : MonoBehaviour
     private void OnMouseDown()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
+        //GetComponent<LineRenderer>().enabled = true;
     }
 
     private void OnMouseUp()
@@ -43,6 +47,7 @@ public class Bird : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(directionToInitialPosition * _launchPower);
         GetComponent<Rigidbody2D>().gravityScale = 1;
         birdWasLaunched = true;
+        GetComponent<LineRenderer>().enabled = false;
     }
 
     private void OnMouseDrag() {
