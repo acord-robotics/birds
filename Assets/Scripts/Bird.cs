@@ -27,10 +27,10 @@ public class Bird : MonoBehaviour
             timeSittingAround += Time.deltaTime; // Amount of time since last frame - Time.deltaTime
         }
 
-        if (transform.position.y > 10 || transform.position.y < -10 || transform.position.x > 10 || transform.position.x < -10 || timeSittingAround > 3) // Reset to default scene if object moves too high, low, or too far to the right or left
+        if (transform.position.y > 17.5 || transform.position.y < -17.5 || transform.position.x > 17.5 || transform.position.x < -17.5 || timeSittingAround > 3) // Reset to default scene if object moves too high, low, or too far to the right or left
         {
             string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
+            SceneManager.LoadScene(currentSceneName); // Load next scene for new level if the scene is complete
         }
     }
 
